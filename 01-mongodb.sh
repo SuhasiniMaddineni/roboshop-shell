@@ -42,7 +42,7 @@ validate $?  "enable mongodb"
 systemctl start mongod &>> $LOGFILE
 validate $?  "start mongodb"
 
-sed -i '/s/127.0.0.1/0.0.0.0/g'    /etc/mongod.conf  &>> $LOGFILE
+sed -i 's/127.0.0.1/0.0.0.0/g'  /etc/mongod.conf  &>> $LOGFILE
 validate $?  "changed IP address to remote"
 
 systemctl restart mongod &>> $LOGFILE
