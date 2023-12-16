@@ -49,7 +49,7 @@ if [ $? -ne 0 ]
     useradd roboshop
     validate $? "roboshop user created"
     else
-    echo -e "user alreay exists $Y skipped"
+    echo -e "user alreay exists $Y skipped $N"
 fi
 
 mkdir -p /app &>> $LOGFILE
