@@ -31,10 +31,10 @@ validate(){
 }
 
 cp /home/centos/roboshop-shell/mongo.repo  /etc/yum.repos.d/mongo.repo &>> $LOGFILE
-validate $?  "copyed mongodb repo $G success $N"
+validate $?  "copyed mongodb repo"
 
-#dnf install mongodb-org -y  &>> $LOGFILE
-#validate $?  "install mongodb $G suceess $N"
+dnf install mongodb-org -y  &>> $LOGFILE
+validate $?  "install mongodb $G suceess $N"
 
-#systemctl enable mongod  &>> $LOGFILE
-#validate $?  "enable mongodb $G suceess $N"
+systemctl enable mongod  &>> $LOGFILE
+validate $?  "enable mongodb $G suceess $N"
