@@ -42,10 +42,17 @@ validate $? "nodejs enabled"
 dnf install nodejs -y  &>> $LOGFILE
 validate $? "nodejs installed"
 
-useradd roboshop &>> $LOGFILE
-validate $? "roboshop user created"
 
-mkdir /app &>> $LOGFILE
+id roboshop
+if [ $? -ne 0 ]
+    then
+    useradd roboshop
+    validate $? "roboshop user created"
+    else
+    echo "user alreay exists $Y skipped"
+fi
+
+mkdir -p /app &>> $LOGFILE
 validate $? "new dir created for new user"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
@@ -54,7 +61,7 @@ validate $? "app downloaded"
 cd /app &>> $LOGFILE
 validate $? "inside app dir"
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
 validate $? "unzip app inside app dir"
 
 npm install &>> $LOGFILE
