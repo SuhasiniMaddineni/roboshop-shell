@@ -34,7 +34,18 @@ cp /home/centos/roboshop-shell/mongo.repo  /etc/yum.repos.d/mongo.repo &>> $LOGF
 validate $?  "copyed mongodb repo"
 
 dnf install mongodb-org -y  &>> $LOGFILE
-validate $?  "install mongodb $G suceess $N"
+validate $?  "install mongodb suceess"
 
 systemctl enable mongod  &>> $LOGFILE
-validate $?  "enable mongodb $G suceess $N"
+validate $?  "enable mongodb"
+
+systemctl start mongod &>> $LOGFILE
+validate $?  "start mongodb"
+
+sed -i '/s/127.0.0.1/0.0.0.0/g'    /etc/mongod.conf  &>> $LOGFILE
+validate $?  "changed IP address to remote"
+
+systemctl restart mongod &>> $LOGFILE
+validate $?  "restart mongodb"
+
+
