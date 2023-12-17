@@ -47,9 +47,9 @@ id roboshop  # if not there then it is failed
 if[ $? -ne 0 ]
     then
     useradd roboshop 
-    validate $? "user not there"
+    validate $? "user added"
     else
-    echo "already created user"
+    echo "already created user $Y skipped $N"
 fi 
 
 mkdir -p /app &>> $LOGFILE
