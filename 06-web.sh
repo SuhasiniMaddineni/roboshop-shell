@@ -42,7 +42,7 @@ validate $? "enabled nginx"
 systemctl start nginx &>> $LOGFILE
 validate $? "started nginx"
 
-rm -rf /usr/share/nginx/html/* &>> $LOGFILE
+rm -rf /usr/share/nginx/html/* 
 validate $? "removed existing html files"
 
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
