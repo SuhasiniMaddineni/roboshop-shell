@@ -43,7 +43,7 @@ dnf install nodejs -y &>> $LOGFILE
 validate $? "finally installed nodejs"
 
 
-id roboshop  # if not there then it is failed
+id roboshop  &>> $LOGFILE # if not there then it is failed
 if [ $? -ne 0 ]
 then
     useradd roboshop 
