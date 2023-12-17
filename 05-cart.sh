@@ -65,6 +65,8 @@ validate $? "unzipped inside app dir"
 npm install  &>> $LOGFILE
 validate $? "installed dependencyes"
 
+cp /home/centos/roboshop-shell/cart.service  /etc/systemd/system/cart.service
+
 systemctl daemon-reload &>> $LOGFILE
 validate $? "reloaded services"
 
