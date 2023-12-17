@@ -42,7 +42,7 @@ validate $? "enabled nodejs"
 dnf install nodejs -y  &>> $LOGFILE
 validate $? "install nodejs"
 
-id roboshop  
+id roboshop &>> $LOGFILE 
 if [ $? -ne 0 ]
     then
     useradd roboshop 
