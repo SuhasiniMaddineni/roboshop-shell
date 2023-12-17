@@ -10,7 +10,7 @@ N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
-Host_Name="mongodb.daws91.online"
+Hostname="mongodb.daws91.online"
 
 echo "script started execution at: $TIMESTAMP" &>> $LOGFILE
 
@@ -84,7 +84,7 @@ validate $? "created mongo repo"
 dnf install mongodb-org-shell -y  &>> $LOGFILE
 validate $? "installed mongo client server"
 
-mongo --host $Host_Name < /app/schema/user.js  &>> $LOGFILE
+mongo --host $Hostname < /app/schema/user.js  &>> $LOGFILE
 validate $? "connected to mongo and pull the usrs data"
 
 
