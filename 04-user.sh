@@ -47,7 +47,7 @@ id roboshop  # if not there then it is failed
 if [ $? -ne 0 ]
 then
     useradd roboshop 
-    validate $? "user added"
+    validate $?  "user added"
 else
     echo -e "already created user $Y skipped $N"
 fi 
@@ -84,7 +84,7 @@ validate $? "created mongo repo"
 dnf install mongodb-org-shell -y  &>> $LOGFILE
 validate $? "installed mongo client server"
 
-mongo --host $Hostname < /app/schema/user.js  &>> $LOGFILE
+mongo --host $Hostname </app/schema/user.js  &>> $LOGFILE
 validate $? "connected to mongo and pull the usrs data"
 
 
