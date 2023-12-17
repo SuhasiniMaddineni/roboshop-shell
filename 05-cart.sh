@@ -10,7 +10,7 @@ N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
-Host_Name="mongodb.daws91.online"
+
 
 echo "script started execution at: $TIMESTAMP" &>> $LOGFILE
 
