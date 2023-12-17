@@ -42,7 +42,7 @@ validate $? "enabled nodejs"
 dnf install nodejs -y  &>> $LOGFILE
 validate $? "install nodejs"
 
-id roboshop  # if not there then it is failed
+id roboshop  
 if [ $? -ne 0 ]
     then
     useradd roboshop 
@@ -54,7 +54,7 @@ fi
 mkdir -p /app  &>> $LOGFILE
 validate $? "created app dir"
 
-curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip  &>> $LOGFILE
+curl -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip  &>> $LOGFILE
 validate $? "download zipped file"
 
 cd /app 
