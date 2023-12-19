@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-AMI=ami-03265a0778a880afb
-SG_ID=sg-0ab4941a3f9f404b7
+#AMI=ami-03265a0778a880afb
+#SG_ID=sg-0ab4941a3f9f404b7
 
 INSTANCES=("mongodb" "mysql" "shipping" "redis" "rabbitmq" "user" "cart" "payment" "dispatch" "web")
 
